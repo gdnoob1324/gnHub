@@ -18,15 +18,18 @@ local DriveWorld = Gui:tab {
 }
 
 Main:button({
-    Name = "Run Script",
+    Name = "Rejoin",
     Description = nil,
     Callback = function()
-        Gui:Notification {
-            Title = "Test",
-            Text = "TEXT",
-            Duration = 3,
-            Callback = function() end
-        }
+        game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+    end
+})
+
+Main:button({
+    Name = "Auto Clicker",
+    Description = "Auto Clicker!",
+    Callback = function()
+        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/JustEzpi/ROBLOX-Scripts/main/ROBLOX_AutoClicker"))()
     end
 })
 
