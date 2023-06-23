@@ -38,6 +38,7 @@ Main:Toggle {
     StartingState = false,
     Description = nil,
     Callback = function(state)
+        
     end
 }
 
@@ -46,7 +47,9 @@ Main:Slider {
     Default = 50,
     Min = 0,
     Max = 100,
-    Callback = function() end
+    Callback = function(value)
+        
+    end
 }
 
 DriveWorld:button({
@@ -134,6 +137,15 @@ DriveWorld:Toggle({
     Description = "easier for quest",
 	Callback = function(state)
         Job["autodeliveryfood"] = state
+    end
+})
+
+Main:Toggle({
+    Name = "Auto Complete Race",
+	StartingState = false,
+    Description = nil,
+	Callback = function(state)
+        Job["autocomplete"] = state
     end
 })
 
@@ -244,6 +256,23 @@ task.spawn(function()
                 end
                 print("Completed Job")
             end)
+        end
+    end
+end)
+
+task.spawn(function()
+    while task.wait() do
+        if Job["autocomplete"] then
+            if isvehicle() then
+                for i,v in next, workspace.Races:GetChildren() do
+                    if (v:FindFirstChild("Checkpoints") and v:FindFirstChild("Active").Value == true and v:FindFirstChild("Checkpoints"):GetChildren()[1]:FindFirstChild("Forcefield")) then
+                        for i = 1, v.TotalCheckpoints.Value  do
+                            Systems:WaitForChild("Races"):WaitForChild("CheckpointTouched"):FireServer(i)
+                            task.wait()
+                        end
+                    end
+                end
+            end
         end
     end
 end)
