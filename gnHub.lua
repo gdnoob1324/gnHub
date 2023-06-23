@@ -38,7 +38,7 @@ Main:Toggle {
     StartingState = false,
     Description = nil,
     Callback = function(state)
-        
+
     end
 }
 
@@ -54,7 +54,7 @@ Main:Slider {
 
 DriveWorld:button({
     Name = "MaxHub(Drive World)",
-    Description = nil,
+    Description = "Only for Super Speed :D",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ufouzzed/m/main/CarShitterHub.lua"))()
     end
