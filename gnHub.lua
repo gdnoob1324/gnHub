@@ -140,7 +140,7 @@ DriveWorld:Toggle({
     end
 })
 
-Main:Toggle({
+DriveWorld:Toggle({
     Name = "Auto Complete Race",
 	StartingState = false,
     Description = nil,
