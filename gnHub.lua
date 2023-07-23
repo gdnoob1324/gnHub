@@ -243,12 +243,10 @@ task.spawn(function()
                     completepos = CompletionRegion:FindFirstChild("Primary").CFrame
                 end
                 task.wait(25)
-                if not Job["autodelivery"] then
-                    return
+                if not Job["autodelivery"] then return
                 end
                 Systems:WaitForChild("Navigate"):WaitForChild("Teleport"):InvokeServer(completepos)
-                if not getvehicle() then
-                    return
+                if not getvehicle() then return
                 end
                 task.wait(.5)
                 Systems:WaitForChild("Jobs"):WaitForChild("CompleteJob"):InvokeServer()
