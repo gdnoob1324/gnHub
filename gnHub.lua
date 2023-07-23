@@ -217,7 +217,7 @@ task.spawn(function()
                 local job = lp.PlayerGui.Interface.Score.Frame.Jobs
                 repeat task.wait()
                     if job.Visible == false and Job["autodelivery"] then
-                        Systems:WaitForChild("Jobs"):WaitForChild("StartJob"):InvokeServer("TrailerDelivery", "9")
+                        Systems:WaitForChild("Jobs"):WaitForChild("StartJob"):InvokeServer("TrailerDelivery", "6")
                     end
                 until job.Visible == true or Job["autodelivery"] == false
                 print("Start Job")
