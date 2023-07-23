@@ -212,7 +212,7 @@ task.spawn(function()
                 end
                 local completepos
                 local distance
-                local epic
+                local jobDistance
                 local CompletionRegion
                 local job = lp.PlayerGui.Interface.Score.Frame.Jobs
                 repeat task.wait()
@@ -221,30 +221,33 @@ task.spawn(function()
                     end
                 until job.Visible == true or Job["autodelivery"] == false
                 print("Start Job")
-                task.wait(.5)
                 repeat task.wait() 
-                    CompletionRegion = workspace:FindFirstChild("CompletionRegion")
+                    CompletionRegion = workspace:WaitForChild("CompletionRegion", 3)
                     if CompletionRegion then
                         distance = CompletionRegion:FindFirstChild("Primary"):FindFirstChild("DestinationIndicator"):FindFirstChild("Distance").Text
                         local yeas = string.split(distance, " ")
                         for i,v in next, yeas do
                             if tonumber(v) then
-                                if tonumber(v) < 2 then
-                                    Systems:WaitForChild("Jobs"):WaitForChild("StartJob"):InvokeServer("TrailerDelivery", "9")
-                                else 
-                                    epic = v
+                                if tonumber(v) < 2.1 then
+                                    Systems:WaitForChild("Jobs"):WaitForChild("StartJob"):InvokeServer("TrailerDelivery", "6")
+                                else
+                                    jobDistance = v
+                                    print("Trailer Job Distance : " .. jobDistance)
                                     break
                                 end
                             end
                         end
                     end
-                until epic and tonumber(epic) >= 2 or Job["autodelivery"] == false
+                until jobDistance and tonumber(jobDistance) > 2.1 or Job["autodelivery"] == false
                 if CompletionRegion:FindFirstChild("Primary") then
                     completepos = CompletionRegion:FindFirstChild("Primary").CFrame
                 end
                 task.wait(25)
+                if not Job["autodelivery"] then
+                    return
+                end
                 Systems:WaitForChild("Navigate"):WaitForChild("Teleport"):InvokeServer(completepos)
-                if not getvehicle() or not Job["autodelivery"] then
+                if not getvehicle() then
                     return
                 end
                 task.wait(.5)
@@ -254,11 +257,12 @@ task.spawn(function()
                     Systems:WaitForChild("Jobs"):WaitForChild("CashBankedEarnings"):FireServer()
                     firesignal(lp.PlayerGui.Interface.JobComplete.Window.Content.Buttons.Close.MouseButton1Click)
                 end
-                print("Completed Job")
+                print("Completed Job")    
             end)
         end
     end
 end)
+
 
 task.spawn(function()
     while task.wait() do
