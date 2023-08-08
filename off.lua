@@ -413,7 +413,7 @@ if not _G.WRDESPLoaded then
 	
 	--Hacky way to keep up with setting changes
     while wait(.1) do
-        ESP:Toggle(_G.WRDESPEnabled or false)
+        ESP:Toggle(false)
         ESP.Boxes = _G.WRDESPBoxes or false
         ESP.TeamColors = _G.WRDESPTeamColors or false
         ESP.Tracers = _G.WRDESPTracers or false
