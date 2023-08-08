@@ -33,13 +33,23 @@ Main:button({
     end
 })
 
+local ESP_ON = false
 Main:button({
     Name = "ESP START",
     Description = nil,
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/gdnoob1324/gnHub/main/e.lua"))()
+        ESP_ON = true
     end
 })
+
+game:GetService("UserInputService").InputBegan:Connect(function(input)
+	if input.KeyCode == Enum.KeyCode.F3 then
+        if ESP_ON then
+            _G.WRDESPEnabled = !_G.WRDESPEnabled
+        end
+	end
+end)
 
 Main:button({
     Name = "ESP ON",
