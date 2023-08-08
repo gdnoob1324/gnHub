@@ -54,23 +54,12 @@ Main:button({
     end
 })
 
-local ESPisSOS = 0
 Main:Toggle {
     Name = "Toggle ESP",
     StartingState = false,
     Description = nil,
     Callback = function(state)
-        print(state)
-        if ESPisSOS == 0 then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/gdnoob1324/gnHub/main/e.lua"))()
-            ESPisSOS = 1
-        else
-            if state == true then
-                _G.WRDESPEnabled = true
-            else
-                _G.WRDESPEnabled = false
-            end
-        end
+
     end
 }
 
