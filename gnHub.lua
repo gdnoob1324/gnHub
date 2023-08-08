@@ -18,6 +18,16 @@ local DriveWorld = Gui:tab {
     Icon = "rbxassetid://13773498965" --8569322835
 }
 
+game:GetService("UserInputService").InputBegan:Connect(function(input)
+	if input.KeyCode == Enum.KeyCode.F3 then
+        if _G.WRDESPEnabled then
+            _G.WRDESPEnabled = false
+        else
+            _G.WRDESPEnabled = true
+        end
+	end	
+end)
+
 Main:button({
     Name = "Rejoin",
     Description = nil,
@@ -43,14 +53,6 @@ Main:button({
         ESP_ON = true
     end
 })
-
-game:GetService("UserInputService").InputBegan:Connect(function(input)
-	if input.KeyCode == Enum.KeyCode.F3 then
-        if ESP_ON then
-            _G.WRDESPEnabled = !_G.WRDESPEnabled
-        end
-	end
-end)
 
 Main:button({
     Name = "ESP ON",
