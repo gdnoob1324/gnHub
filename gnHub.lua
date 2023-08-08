@@ -54,22 +54,6 @@ Main:button({
     end
 })
 
-Main:button({
-    Name = "ESP ON",
-    Description = nil,
-    Callback = function()
-        _G.WRDESPEnabled = true
-    end
-})
-
-Main:button({
-    Name = "ESP OFF",
-    Description = nil,
-    Callback = function()
-        _G.WRDESPEnabled = false
-    end
-})
-
 local ESPisSOS = 0
 Main:Toggle {
     Name = "Toggle ESP",
