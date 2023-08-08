@@ -45,7 +45,7 @@ Main:Toggle {
         end
         if state == true then
             _G.WRDESPEnabled = true
-        else
+        if state == false then
             _G.WRDESPEnabled = false
         end
     end
