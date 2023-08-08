@@ -39,14 +39,16 @@ Main:Toggle {
     StartingState = false,
     Description = nil,
     Callback = function(state)
+        print(state)
         if ESPisSOS == 0 then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/gdnoob1324/gnHub/main/e.lua"))()
             ESPisSOS = 1
-        end
-        if state == true then
-            _G.WRDESPEnabled = true
         else
-            _G.WRDESPEnabled = false
+            if state == true then
+                _G.WRDESPEnabled = true
+            else
+                _G.WRDESPEnabled = false
+            end
         end
     end
 }
