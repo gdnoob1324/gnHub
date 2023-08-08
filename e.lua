@@ -256,7 +256,7 @@ if not _G.WRDESPLoaded then
                 
                 self.Components.Distance.Visible = true
                 self.Components.Distance.Position = Vector2.new(TagPos.X, TagPos.Y + 14)
-                self.Components.Distance.Text = "[" ..math.floor((cam.CFrame.p - cf.p).magnitude) .."]"
+                self.Components.Distance.Text = "[".. math.floor((cam.CFrame.p - cf.p).magnitude) .."]"
                 self.Components.Distance.Color = color
             else
                 self.Components.Name.Visible = false
