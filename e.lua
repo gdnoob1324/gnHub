@@ -410,7 +410,7 @@ if not _G.WRDESPLoaded then
 
     --Sets defaults where required
     if _G.WRDESPEnabled == nil then _G.WRDESPEnabled = true end
-    if _G.WRDESPBoxes == nil then _G.WRDESPBoxes = true end
+    if _G.WRDESPBoxes == nil then _G.WRDESPBoxes = false end
     if _G.WRDESPTeamColors == nil then _G.WRDESPTeamColors = true end
     if _G.WRDESPTracers == nil then _G.WRDESPTracers = false end
     if _G.WRDESPNames == nil then _G.WRDESPNames = true end
