@@ -19,11 +19,7 @@ local DriveWorld = Gui:tab {
 
 game:GetService("UserInputService").InputBegan:Connect(function(input)
 	if input.KeyCode == Enum.KeyCode.F3 then
-        if _G.WRDESPEnabled then
-            _G.WRDESPEnabled = false
-        else
-            _G.WRDESPEnabled = true
-        end
+        _G.WRDESPEnabled = not (_G.WRDESPEnabled)
 	end	
 end)
 
