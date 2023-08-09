@@ -16,7 +16,6 @@ _G.WRDESPNames = nil --Displays the names of the players within the ESP box (Def
 
 --Dont edit below
 
-
 --Only ever load the script once
 if not _G.WRDESPLoaded then    
     ----[[ First- Load Kiriot ESP Library ]]----

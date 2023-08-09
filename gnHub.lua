@@ -10,7 +10,6 @@ local Gui = Library:Create {
 local Main = Gui:tab {
     Name = "Main",
     Icon = "rbxassetid://2174510075"
-    --A
 }
 
 local DriveWorld = Gui:tab {
@@ -30,9 +29,19 @@ end)
 
 Main:button({
     Name = "Rejoin",
-    Description = nil,
+    Description = "Re Join",
     Callback = function()
         game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+    end
+})
+
+local ESP_ON = false
+Main:button({
+    Name = "ESP START",
+    Description = "Edited Kiriot ESP",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/gdnoob1324/gnHub/main/e.lua"))()
+        ESP_ON = true
     end
 })
 
@@ -44,22 +53,12 @@ Main:button({
     end
 })
 
-local ESP_ON = false
-Main:button({
-    Name = "ESP START",
-    Description = nil,
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/gdnoob1324/gnHub/main/e.lua"))()
-        ESP_ON = true
-    end
-})
-
 Main:Toggle {
-    Name = "Toggle ESP",
+    Name = "Toggle",
     StartingState = false,
     Description = nil,
     Callback = function(state)
-
+        
     end
 }
 
