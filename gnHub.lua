@@ -23,7 +23,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(input)
 	end	
 end)
 
-Main:button({
+Main:Button({
     Name = "Rejoin",
     Description = "Re Join",
     Callback = function()
@@ -32,39 +32,19 @@ Main:button({
 })
 
 local ESP_ON = false
-Main:button({
+Main:Button({
     Name = "ESP START",
-    Description = "Edited Kiriot ESP",
+    Description = "Toggle: F3",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/gdnoob1324/gnHub/main/e.lua"))()
         ESP_ON = true
     end
 })
 
-Main:button({
-    Name = "Auto Clicker",
-    Description = "Auto Clicker!",
-    Callback = function()
-        loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/JustEzpi/ROBLOX-Scripts/main/ROBLOX_AutoClicker"))()
-    end
-})
-
-Main:Toggle {
-    Name = "Toggle",
-    StartingState = false,
-    Description = nil,
-    Callback = function(state)
-        
-    end
-}
-
-Main:Slider {
-    Name = "Slider",
-    Default = 50,
-    Min = 0,
-    Max = 100,
-    Callback = function(value)
-
+Main:Button{
+	Name = "",
+	Description = nil,
+	Callback = function()
     end
 }
 
