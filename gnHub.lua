@@ -23,6 +23,16 @@ game:GetService("UserInputService").InputBegan:Connect(function(input)
 	end	
 end)
 
+local afOn = false
+local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+    if afOn then
+        vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+        wait(1)
+        vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+    end
+end)
+
 Main:Button({
     Name = "Rejoin",
     Description = "Re Join",
@@ -41,12 +51,14 @@ Main:Button({
     end
 })
 
-Main:Button{
-	Name = "",
-	Description = nil,
-	Callback = function()
+DriveWorld:Toggle({
+    Name = "Anti Afk",
+	StartingState = false,
+    Description = "anti afk kick",
+	Callback = function(state)
+        afOn = state
     end
-}
+})
 
 DriveWorld:Button({
     Name = "MaxHub(Drive World)",
