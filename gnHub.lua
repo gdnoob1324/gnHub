@@ -7,12 +7,12 @@ local Gui = Library:Create {
     Link = "https://github.com/deeeity/mercury-lib"
 }
 
-local Main = Gui:tab {
+local Main = Gui:Tab {
     Name = "Main",
     Icon = "rbxassetid://2174510075"
 }
 
-local DriveWorld = Gui:tab {
+local DriveWorld = Gui:Tab {
     Name = "Drive World",
     Icon = "rbxassetid://13773498965" --8569322835
 }
@@ -48,7 +48,7 @@ Main:Button{
     end
 }
 
-DriveWorld:button({
+DriveWorld:Button({
     Name = "MaxHub(Drive World)",
     Description = "Only for Super Car :D",
     Callback = function()
@@ -56,11 +56,10 @@ DriveWorld:button({
     end
 })
 
-DriveWorld:Toggle({
+DriveWorld:Button({
     Name = "Start",
-	StartingState = false,
     Description = "First",
-	Callback = function(state)
+	Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/gdnoob1324/gnHub/main/DWjob.lua"))()
     end
 })
@@ -95,7 +94,7 @@ DriveWorld:Toggle({
 
 Gui:Credit {
     Name = "gdnoob1324",
-    Description = "Helped with the script",
+    Description = "3 years old",
     V3rm = "https://v3rmillion.net/member.php?action=profile&uid=3143401",
     Discord = "지디늅#6134"
 }
@@ -107,4 +106,4 @@ Gui:Credit{
     Discord = "https://discord.gg/b9QX5rnkT5"
 }
 
-Gui:set_status("Active")
+Gui:Set_status("Made by gdnoob1324")
