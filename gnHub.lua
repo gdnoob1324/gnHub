@@ -51,12 +51,20 @@ Main:Button({
     end
 })
 
-DriveWorld:Toggle({
+Main:Toggle({
     Name = "Anti Afk",
 	StartingState = false,
     Description = "anti afk kick",
 	Callback = function(state)
         afOn = state
+    end
+})
+
+Main:Button({
+    Name = "Fly Gui",
+    Description = "by meozoneYT",
+    Callback = function()
+        loadstring(game:HttpGet('https://gist.githubusercontent.com/meozoneYT/bf037dff9f0a70017304ddd67fdcd370/raw/e14e74f425b060df523343cf30b787074eb3c5d2/arceus%2520x%2520fly%25202%2520obflucator'),true)()
     end
 })
 
