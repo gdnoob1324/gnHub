@@ -12,6 +12,11 @@ local Main = Gui:Tab {
     Icon = "rbxassetid://2174510075"
 }
 
+local AGui = Gui:Tab {
+    Name = "Other Gui",
+    Icon = "rbxassetid://11570895484"
+}
+
 local DriveWorld = Gui:Tab {
     Name = "Drive World",
     Icon = "rbxassetid://13773498965" --8569322835
@@ -60,11 +65,35 @@ Main:Toggle({
     end
 })
 
-Main:Button({
+AGui:Button({
     Name = "Fly Gui",
     Description = "by meozoneYT",
     Callback = function()
-        loadstring(game:HttpGet('https://gist.githubusercontent.com/meozoneYT/bf037dff9f0a70017304ddd67fdcd370/raw/e14e74f425b060df523343cf30b787074eb3c5d2/arceus%2520x%2520fly%25202%2520obflucator'),true)()
+        loadstring(game:HttpGet('https://gist.githubusercontent.com/meozoneYT/bf037dff9f0a70017304ddd67fdcd370/raw/e14e74f425b060df523343cf30b787074eb3c5d2/arceus%2520x%2520fly%25202%2520obflucator',true))()
+    end
+})
+
+AGui:Button({
+    Name = "Funky Friday Gui",
+    Description = "Auto Play",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/wally-rblx/funky-friday-autoplay/main/main.lua",true))()
+    end
+})
+
+AGui:Button({
+    Name = "Universal Vehicle Gui",
+    Description = "hmm",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AbamJelek/roblox-scripts/8922d24802895598105e6a3dcc331529f43e8ab1/Universal%20Vehicle%20Script/Universal%20Vehicle%20Script.lua",true))()
+    end
+})
+
+AGui:Button({
+    Name = "HoHo Hub Gui",
+    Description = "hmm",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/DookDekDEE/Hyper/main/script.lua",true))()
     end
 })
 
