@@ -285,7 +285,7 @@ if not _G.WRDESPLoaded then
         end
 
         local box = setmetatable({
-            Name = options.Name or obj.Name,
+            Name = options.Name or obj.DisplayName,
             Type = "Box",
             Color = options.Color --[[or self:GetColor(obj)]],
             Size = options.Size or self.BoxSize,
@@ -365,7 +365,7 @@ if not _G.WRDESPLoaded then
                 if c.Name == "HumanoidRootPart" then
                     ev:Disconnect()
                     ESP:Add(char, {
-                        Name = p.Name,
+                        Name = p.DisplayName,
                         Player = p,
                         PrimaryPart = c
                     })
@@ -373,7 +373,7 @@ if not _G.WRDESPLoaded then
             end)
         else
             ESP:Add(char, {
-                Name = p.Name,
+                Name = p.DisplayName,
                 Player = p,
                 PrimaryPart = char.HumanoidRootPart
             })

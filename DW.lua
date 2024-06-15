@@ -10,27 +10,20 @@ local Gui = Library:Create {
 
 local Main = Gui:Tab {
     Name = "Main",
-    Icon = "rbxassetid://2174510075"
-}
-
-local AGui = Gui:Tab {
-    Name = "Other Gui",
-    Icon = "rbxassetid://6473525204"
-}
-
-local DriveWorld = Gui:Tab {
-    Name = "Drive World",
-    Icon = "rbxassetid://13773498965" --8569322835
+    Icon = "rbxassetid://13773498965"
 }
 
 game:GetService("UserInputService").InputBegan:Connect(function(input)
 	if input.KeyCode == Enum.KeyCode.F3 then
         _G.WRDESPEnabled = not (_G.WRDESPEnabled)
-        print(_G.WRDESPEnabled)
 	end
     if input.KeyCode == Enum.KeyCode.F4 then
         _G.gnSpeedEnabled = not (_G.gnSpeedEnabled)
-        print(_G.gnSpeedEnabled)
+        local istrue = "Disable" 
+        if _G.gnSpeedEnabled then
+            istrue = "Enable"
+        end
+        game.StarterGui:SetCore("SendNotification", {Title=istrue; Text="gnSpeed"; Duration=1;})
 	end
 end)
 
@@ -52,13 +45,11 @@ Main:Button({
     end
 })
 
-local ESP_ON = false
 Main:Button({
     Name = "ESP START",
     Description = "Toggle: F3",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/gdnoob1324/gnHub/main/esp.lua"))()
-        ESP_ON = true
     end
 })
 
