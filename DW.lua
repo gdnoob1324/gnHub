@@ -13,19 +13,22 @@ local Main = Gui:Tab {
     Icon = "rbxassetid://13773498965"
 }
 
-game:GetService("UserInputService").InputBegan:Connect(function(input)
-	if input.KeyCode == Enum.KeyCode.F3 then
-        _G.WRDESPEnabled = not (_G.WRDESPEnabled)
-	end
-    if input.KeyCode == Enum.KeyCode.F4 then
-        _G.gnSpeedEnabled = not (_G.gnSpeedEnabled)
-        local istrue = "Disable" 
-        if _G.gnSpeedEnabled then
-            istrue = "Enable"
+if not _G.gnEnabled then
+    _G.gnEnabled = true
+    game:GetService("UserInputService").InputBegan:Connect(function(input)
+        if input.KeyCode == Enum.KeyCode.F3 then
+            _G.WRDESPEnabled = not (_G.WRDESPEnabled)
         end
-        game.StarterGui:SetCore("SendNotification", {Title=istrue; Text="gnSpeed"; Duration=1;})
-	end
-end)
+        if input.KeyCode == Enum.KeyCode.F4 then
+            _G.gnSpeedEnabled = not (_G.gnSpeedEnabled)
+            local istrue = "Disable" 
+            if _G.gnSpeedEnabled then
+                istrue = "Enable"
+            end
+            game.StarterGui:SetCore("SendNotification", {Title=istrue; Text="gnSpeed"; Duration=1;})
+        end
+    end)
+end
 
 local vu = game:GetService("VirtualUser")
 game:GetService("Players").LocalPlayer.Idled:connect(function()
@@ -60,13 +63,28 @@ Main:Button({
     end
 })
 
+local DriveState = false
 Main:Toggle({
-    Name = "Test",
+    Name = "Auto Drive",
 	StartingState = false,
     Description = nil,
 	Callback = function(state)
+        DriveState = state
     end
 })
+
+local VirtualInputManager = game:GetService("VirtualInputManager")
+task.spawn(function()
+    while task.wait() do
+        if DriveState then
+            VirtualInputManager:SendKeyEvent(true, "W", false, game)
+            VirtualInputManager:SendKeyEvent(true, "D", false, game)
+            task.wait(.1)
+            VirtualInputManager:SendKeyEvent(false, "W", false, game)
+            VirtualInputManager:SendKeyEvent(false, "D", false, game)
+        end
+    end
+end)
 
 Gui:Credit {
     Name = "gdnoob1324",
