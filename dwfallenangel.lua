@@ -317,4 +317,9 @@ GUI:Credit{
     Discord = "https://discord.gg/b9QX5rnkT5"
 }
 
+GUI:Credit{
+    Name = "gdnoob1324",
+    Description = "Edit the script",
+}
+
 GUI:set_status("Status | Active")
