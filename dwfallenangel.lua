@@ -126,7 +126,7 @@ task.spawn(function()
                 if not getvehicle() then
                     spawnvehicle()
                 end
-                getchar().HumanoidRootPart.CFrame = getvehicle().PrimaryPart.CFrame
+                --getchar().HumanoidRootPart.CFrame = getvehicle().PrimaryPart.CFrame
                 task.wait(1)
                 VirtualInputManager:SendKeyEvent(true, "E", false, game)
                 VirtualInputManager:SendKeyEvent(false, "E", false, game)
@@ -204,7 +204,7 @@ task.spawn(function()
                     ReplicatedStorage:WaitForChild("Systems"):WaitForChild("Jobs"):WaitForChild("StartJob"):InvokeServer(workspace:WaitForChild("Jobs"):WaitForChild("Trucking"),workspace:WaitForChild("Jobs"):WaitForChild("Trucking"):WaitForChild("StartPoints"):WaitForChild("Logs"))
                 end
             until jobDistance and tonumber(jobDistance) >= 2.1 or Driveworld["autodelivery"] == false
-            for i = 1, 40 do
+            for i = 1, 39 do
                 if not Driveworld["autodelivery"] or not getvehicle() or not getchar() or isvehicle() == false or job.Visible == false then
                     break
                 end
