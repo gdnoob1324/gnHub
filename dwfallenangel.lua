@@ -216,7 +216,7 @@ task.spawn(function()
             VirtualInputManager:SendKeyEvent(true, "W", false, game)
             for _,v in pairs(workspace.Cars:GetChildren()) do
                 if tostring(v.Owner.Value) == game.Players.LocalPlayer.Name then
-                    v.Main.Velocity += v.Main.CFrame.LookVector * Vector3.new(5,0,5)
+                    v.Main.Velocity += v.Main.CFrame.LookVector * Vector3.new(15,0,15)
                 end
             end
             task.wait(.15)
