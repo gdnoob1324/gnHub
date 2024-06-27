@@ -211,7 +211,7 @@ task.spawn(function()
                 task.wait(1)
             end
             if workspace:FindFirstChild("CompletionRegion") and workspace:FindFirstChild("CompletionRegion"):FindFirstChild("Primary") then
-                getvehicle():SetPrimaryPartCFrame(workspace:FindFirstChild("CompletionRegion"):FindFirstChild("Primary").CFrame * CFrame.new(0,4,-20))
+                getvehicle():SetPrimaryPartCFrame(workspace:FindFirstChild("CompletionRegion"):FindFirstChild("Primary").CFrame * CFrame.new(0,3,-19))
             end
             VirtualInputManager:SendKeyEvent(true, "W", false, game)
             for _,v in pairs(workspace.Cars:GetChildren()) do
@@ -219,7 +219,7 @@ task.spawn(function()
                     v.Main.Velocity += v.Main.CFrame.LookVector * Vector3.new(15,0,15)
                 end
             end
-            task.wait(.2)
+            task.wait(.1)
             Systems:WaitForChild("Jobs"):WaitForChild("CompleteJob"):InvokeServer()
             VirtualInputManager:SendKeyEvent(false, "W", false, game)
             task.wait(.5)
