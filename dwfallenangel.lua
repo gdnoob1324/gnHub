@@ -204,7 +204,7 @@ task.spawn(function()
                     ReplicatedStorage:WaitForChild("Systems"):WaitForChild("Jobs"):WaitForChild("StartJob"):InvokeServer(workspace:WaitForChild("Jobs"):WaitForChild("Trucking"),workspace:WaitForChild("Jobs"):WaitForChild("Trucking"):WaitForChild("StartPoints"):WaitForChild("Logs"))
                 end
             until jobDistance and tonumber(jobDistance) >= 2.1 or Driveworld["autodelivery"] == false
-            for i = 1, 39 do
+            for i = 1, 40 do
                 if not Driveworld["autodelivery"] or not getvehicle() or not getchar() or isvehicle() == false or job.Visible == false then
                     break
                 end
@@ -219,7 +219,7 @@ task.spawn(function()
                     v.Main.Velocity += v.Main.CFrame.LookVector * Vector3.new(15,0,15)
                 end
             end
-            task.wait(.15)
+            task.wait(.1)
             Systems:WaitForChild("Jobs"):WaitForChild("CompleteJob"):InvokeServer()
             VirtualInputManager:SendKeyEvent(false, "W", false, game)
             task.wait(.5)
