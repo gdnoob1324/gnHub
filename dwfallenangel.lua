@@ -219,7 +219,7 @@ task.spawn(function()
                     v.Main.Velocity += v.Main.CFrame.LookVector * Vector3.new(15,0,15)
                 end
             end
-            task.wait(.1)
+            task.wait(.2)
             Systems:WaitForChild("Jobs"):WaitForChild("CompleteJob"):InvokeServer()
             VirtualInputManager:SendKeyEvent(false, "W", false, game)
             task.wait(.5)
