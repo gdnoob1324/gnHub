@@ -2,7 +2,7 @@ local uis = game:GetService("UserInputService")
 _G.gnSpeedEnabled = true
 local iswpressed = false
 local isspressed = false
-local isgpressed = false
+local iscpressed = false
 
 uis.InputBegan:Connect(function(input)
     if _G.gnSpeedEnabled then
@@ -30,9 +30,9 @@ uis.InputBegan:Connect(function(input)
         end
     end
 
-    if input.KeyCode == Enum.KeyCode.G then
-        isgpressed = true
-        while isgpressed do
+    if input.KeyCode == Enum.KeyCode.C then
+        iscpressed = true
+        while iscpressed do
             for _,v in pairs(workspace.Cars:GetChildren()) do
                 if tostring(v.Owner.Value) == game.Players.LocalPlayer.Name then
                     v.Main.Velocity += v.Main.CFrame.LookVector * Vector3.new(0,0,0) + Vector3.new(0,10,0)
@@ -53,7 +53,7 @@ uis.InputEnded:Connect(function(input)
         isspressed = false
     end
 
-    if input.KeyCode == Enum.KeyCode.G then
-        isgpressed = false
+    if input.KeyCode == Enum.KeyCode.C then
+        iscpressed = false
     end
 end)

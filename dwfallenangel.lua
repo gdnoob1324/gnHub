@@ -159,8 +159,15 @@ task.spawn(function()
                     v.Main.Velocity += v.Main.CFrame.LookVector * Vector3.new(100,0,100) - Vector3.new(0,0,0)
                 end
             end
-            task.wait(.3)
+            task.wait(.1)
             Systems:WaitForChild("Jobs"):WaitForChild("CompleteJob"):InvokeServer()
+            task.wait(.5)
+            if lp.PlayerGui.JobComplete.Enabled == true then
+                Systems:WaitForChild("Jobs"):WaitForChild("CashBankedEarnings"):FireServer()
+                for i,v in next, getconnections(lp.PlayerGui.JobComplete.Window.Content.Buttons.CloseButton.MouseButton1Click) do
+                    v:Fire()
+                end
+            end
         end
     end
 end)
@@ -211,15 +218,15 @@ task.spawn(function()
                 task.wait(1)
             end
             if workspace:FindFirstChild("CompletionRegion") and workspace:FindFirstChild("CompletionRegion"):FindFirstChild("Primary") then
-                getvehicle():SetPrimaryPartCFrame(workspace:FindFirstChild("CompletionRegion"):FindFirstChild("Primary").CFrame * CFrame.new(0,3,-19))
+                getvehicle():SetPrimaryPartCFrame(workspace:FindFirstChild("CompletionRegion"):FindFirstChild("Primary").CFrame * CFrame.new(0,3,-20))
             end
             VirtualInputManager:SendKeyEvent(true, "W", false, game)
             for _,v in pairs(workspace.Cars:GetChildren()) do
                 if tostring(v.Owner.Value) == game.Players.LocalPlayer.Name then
-                    v.Main.Velocity += v.Main.CFrame.LookVector * Vector3.new(15,0,15)
+                    --v.Main.Velocity += v.Main.CFrame.LookVector * Vector3.new(15,0,15)
                 end
             end
-            task.wait(.1)
+            task.wait(.2)
             Systems:WaitForChild("Jobs"):WaitForChild("CompleteJob"):InvokeServer()
             VirtualInputManager:SendKeyEvent(false, "W", false, game)
             task.wait(.5)
